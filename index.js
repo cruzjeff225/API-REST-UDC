@@ -21,9 +21,31 @@ const readData = () => {
 
 //Escritura a DB simulada en JSON
 const writeData = (data) => {
-    fs.writeFileSync("./db.json", JSON.striginfy(data));
-    return JSON.parse(data);
-}
+    try{
+        fs.writeFileSync("./db.json", JSON.stringify(data));
+    } catch (error){
+        console.log(error)
+    }
+};
+
+//ENDPOINT (Mostrar Todas las Tareas)
+app.get('/all-task', (req, res) => {
+    const data = readData();
+    res.json(data.task)
+});
+//ENDPOINT (Crear una Nueva Tarea)
+app.post('/all-task', (req, res) => {
+    const data = readData();
+    const body = req.body;
+    const newTask = {
+        id: data.task.length + 1,
+        ...body,
+    };
+    data.task.push(newTask);
+    writeData(data);
+    res.json(newTask);
+});
+
 
 
 app.listen(3000, () => {
