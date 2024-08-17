@@ -45,7 +45,27 @@ app.post('/all-task', (req, res) => {
     writeData(data);
     res.json(newTask);
 });
+//ENDPOINT (Seleccionar Tarea por ID)
+app.get('/all-task/:id', (req, res) => {
+    const data = readData();
+    const id = parseInt(req.params.id);
+    const task = data.task.find((task) => task.id === id);
+    res.json(task);
+});
+//ENDPOINT (Editar Tarea Existente)
+app.put('/all-task/:id', (req, res) => {
+    const data = readData();
+    const body = req.body;
+    const id = parseInt(req.params.id);
+    const taskIndex = data.task.findIndex((task) => task.id === id);
+    data.task[taskIndex] = {
+        ...data.task[taskIndex],
+        ...body,
+    };
+    writeData(data);
+    res.json({message: "Tarea agregada con exito"});
 
+});
 
 
 app.listen(3000, () => {

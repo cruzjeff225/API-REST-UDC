@@ -1,20 +1,20 @@
 {
-    "ta":[
-        {
-            "id": 1,
-            "task": "Gym",
-            "priority": "Alta",
-            "description": "Ir por mi rutina diaria de Gym",
-            "time": "5:00 A.M",
-            "status":"Completada"
-        },
-        {
-            "id": 2,
-            "task": "Diseñar Web",
-            "priority": "Alta",
-            "description": "Diseñar Website responsive",
-            "time": "7:00 A.M",
-            "status":"Pendiente"
-        }
-    ]
+  "task": [
+    {
+      "id": 1,
+      "task": "Gym",
+      "priority": "Alta",
+      "description": "Ir por mi rutina diaria de Gym",
+      "time": "5:00 A.M",
+      "status": "Completada"
+    },
+    {
+      "id": 2,
+      "task": "Diseñar Web",
+      "priority": "Alta",
+      "description": "Diseñar Website responsive",
+      "time": "7:00 A.M",
+      "status": "Pendiente"
+    }
+  ]
 }
