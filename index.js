@@ -64,10 +64,17 @@ app.put('/all-task/:id', (req, res) => {
     };
     writeData(data);
     res.json({message: "Tarea agregada con exito"});
-
 });
-
+//ENDPOINT (Eliminar Tarea Existente)
+app.delete('/all-task/:id', (req, res) => {
+    const data = readData();
+    const id = parseInt(req.params.id);
+    const taskIndex = data.task.findIndex((task) => task.id === id);
+    data.task.splice(taskIndex, 1);
+    writeData(data);
+    res.json({message: "Tarea eliminada con exito"});
+});
 
 app.listen(3000, () => {
     console.log('Servidor escuchando desde el puerto 3000');
-})
+});
